@@ -1,0 +1,39 @@
+[12:50 PM] Puja Mudaliar
+>  docker volume create --name=grafana-volume
+>  <change IP address to localhost IP in all config files>
+>  systemctl status firewalld
+>  systemctl stop firewalld < disable firewall if not done>
+>  getenforce < selinux should be disabled>
+>  systemctl disable firewalld
+>  systemctl restart docker 
+>  systemctl status docker
+>  docker-compose -f docker-compose-mon.yml up -d
+>  docker ps -ahttp://10.230.247.14:9090/ -> prometheushttp://10.230.247.14:3000 -> grafana (default password admin/admin) Add nfs mountpoint for jenkins
+[root@ssc-vm-0331 monitoring]# cat /etc/fstab #
+# /etc/fstab
+# Created by anaconda on Thu May 14 14:01:57 2020
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+/dev/mapper/vg_sysvol-lv_root /                       ext4    defaults        1 1
+UUID=8121c3a2-e0c7-4fdc-9b84-320b96ef70dd /boot                   ext4    defaults        1 2
+/dev/mapper/vg_sysvol-lv_tmp /tmp                    ext4    defaults        1 2
+/dev/mapper/vg_sysvol-lv_var /var                    ext4    defaults        1 2
+/dev/mapper/vg_sysvol-lv_log /var/log                ext4    defaults        1 2
+/dev/mapper/vg_sysvol-lv_audit /var/log/audit          ext4    defaults        1 2
+ like 1
+
+[12:50 PM] Puja Mudaliar
+[root@ssc-vm-0331 monitoring]# pwd
+/monitoring
+[root@ssc-vm-0331 monitoring]# hostname
+ssc-vm-0331.colo.seagate.com
+
+[12:50 PM] Puja Mudaliar
+save the directory from this system
+
+[12:50 PM] Puja Mudaliar
+root/root123
+
+
