@@ -4,6 +4,7 @@ global:
     monitor: 'disk-monitor'
 
 rule_files:
+# All mountpoints in alert.rules have been manually mounted onto the node.
   - 'alert.rules'
 
 scrape_configs:

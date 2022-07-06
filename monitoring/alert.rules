@@ -18,3 +18,21 @@ groups:
     annotations:
       summary: "/mnt/data1/releases storage is filling fast."
       description: "/mnt/data1/releases usage is {{ humanize $value}}%. Reported by instance {{ $labels.instance }} of job {{ $labels.job }}."
+
+  - alert: jenkins-dev
+    expr: 100 - (100 * ((node_filesystem_avail_bytes{device="cortx-storage.colo.seagate.com:/mnt/data1/releases/jenkins/jenkins-dev/jenkins_home-dev", fstype="nfs4", instance="10.230.243.253:9100", job="node-exporter", mountpoint="/rootfs/mnt/jenkins-dev"} )  / (node_filesystem_size_bytes{device="cortx-storage.colo.seagate.com:/mnt/jenkins-dev", fstype="nfs4", instance="10.230.243.253:9100", job="node-exporter", mountpoint="/rootfs/mnt/jenkins-dev"}) )) > 95
+    for: 30s
+    labels:
+      severity: Critical
+    annotations:
+      summary: "/mnt/data1/releases storage is filling fast."
+      description: "/mnt/data1/releases usage is {{ humanize $value}}%. Reported by instance {{ $labels.instance }} of job {{ $labels.job }}."
+
+  - alert: jenkins-prod
+    expr: 100 - (100 * ((node_filesystem_avail_bytes{device="cortx-storage.colo.seagate.com:/mnt/data1/releases/jenkins/jenkins-prod", fstype="nfs4", instance="10.230.243.253:9100", job="node-exporter", mountpoint="/rootfs/mnt/jenkins-prod"} )  / (node_filesystem_size_bytes{device="cortx-storage.colo.seagate.com:/mnt/jenkins-prod", fstype="nfs4", instance="10.230.243.253:9100", job="node-exporter", mountpoint="/rootfs/mnt/jenkins-prod"}) )) > 95
+    for: 30s
+    labels:
+      severity: Critical
+    annotations:
+      summary: "/mnt/data1/releases storage is filling fast."
+      description: "/mnt/data1/releases usage is {{ humanize $value}}%. Reported by instance {{ $labels.instance }} of job {{ $labels.job }}."
